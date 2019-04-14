@@ -438,7 +438,7 @@ class ChatScreenState extends State<ChatScreen> {
                 onPressed: () => onSendMessage('mimi1', 2),
                 child: new Image.asset(
                   'images/mimi1.gif',
-                  width: 50.0,
+                  width: 100.0,
                   height: 50.0,
                   fit: BoxFit.cover,
                 ),
@@ -447,7 +447,7 @@ class ChatScreenState extends State<ChatScreen> {
                 onPressed: () => onSendMessage('mimi2', 2),
                 child: new Image.asset(
                   'images/mimi2.gif',
-                  width: 50.0,
+                  width: 100.0,
                   height: 50.0,
                   fit: BoxFit.cover,
                 ),
@@ -456,7 +456,7 @@ class ChatScreenState extends State<ChatScreen> {
                 onPressed: () => onSendMessage('mimi3', 2),
                 child: new Image.asset(
                   'images/mimi3.gif',
-                  width: 50.0,
+                  width: 100.0,
                   height: 50.0,
                   fit: BoxFit.cover,
                 ),
@@ -470,7 +470,7 @@ class ChatScreenState extends State<ChatScreen> {
                 onPressed: () => onSendMessage('mimi4', 2),
                 child: new Image.asset(
                   'images/mimi4.gif',
-                  width: 50.0,
+                  width: 100.0,
                   height: 50.0,
                   fit: BoxFit.cover,
                 ),
@@ -479,7 +479,7 @@ class ChatScreenState extends State<ChatScreen> {
                 onPressed: () => onSendMessage('mimi5', 2),
                 child: new Image.asset(
                   'images/mimi5.gif',
-                  width: 50.0,
+                  width: 100.0,
                   height: 50.0,
                   fit: BoxFit.cover,
                 ),
@@ -488,7 +488,7 @@ class ChatScreenState extends State<ChatScreen> {
                 onPressed: () => onSendMessage('mimi6', 2),
                 child: new Image.asset(
                   'images/mimi6.gif',
-                  width: 50.0,
+                  width: 100.0,
                   height: 50.0,
                   fit: BoxFit.cover,
                 ),
@@ -502,7 +502,7 @@ class ChatScreenState extends State<ChatScreen> {
                 onPressed: () => onSendMessage('mimi7', 2),
                 child: new Image.asset(
                   'images/mimi7.gif',
-                  width: 50.0,
+                  width: 100.0,
                   height: 50.0,
                   fit: BoxFit.cover,
                 ),
@@ -511,7 +511,7 @@ class ChatScreenState extends State<ChatScreen> {
                 onPressed: () => onSendMessage('mimi8', 2),
                 child: new Image.asset(
                   'images/mimi8.gif',
-                  width: 50.0,
+                  width: 100.0,
                   height: 50.0,
                   fit: BoxFit.cover,
                 ),
@@ -520,7 +520,7 @@ class ChatScreenState extends State<ChatScreen> {
                 onPressed: () => onSendMessage('mimi9', 2),
                 child: new Image.asset(
                   'images/mimi9.gif',
-                  width: 50.0,
+                  width: 100.0,
                   height: 50.0,
                   fit: BoxFit.cover,
                 ),
@@ -558,9 +558,9 @@ class ChatScreenState extends State<ChatScreen> {
           // Button send image
           Material(
             child: new Container(
-              margin: new EdgeInsets.symmetric(horizontal: 1.0),
+              margin: new EdgeInsets.only(),
               child: new IconButton(
-                icon: new Icon(Icons.image),
+                icon: new Icon(Icons.image,color:Colors.blue),
                 onPressed: getImage,
                 color: primaryColor,
               ),
@@ -569,9 +569,9 @@ class ChatScreenState extends State<ChatScreen> {
           ),
           Material(
             child: new Container(
-              margin: new EdgeInsets.symmetric(horizontal: 1.0),
+              margin: new EdgeInsets.only(),
               child: new IconButton(
-                icon: new Icon(Icons.face),
+                icon: new Icon(Icons.gif,color: Colors.blue,size: 35),
                 onPressed: getSticker,
                 color: primaryColor,
               ),
@@ -599,7 +599,7 @@ class ChatScreenState extends State<ChatScreen> {
             child: new Container(
               margin: new EdgeInsets.symmetric(horizontal: 8.0),
               child: new IconButton(
-                icon: new Icon(Icons.send),
+                icon: new Icon(Icons.send,color:Colors.blue),
                 onPressed: () => onSendMessage(textEditingController.text, 0),
                 color: primaryColor,
               ),
