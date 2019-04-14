@@ -155,7 +155,7 @@ class MainScreenState extends State<MainScreen> {
                     children: <Widget>[
                       Container(
                         child: Text(
-                          'Nickname: ${document['nickname']}',
+                          '${document['nickname']}',
                           style: TextStyle(color: primaryColor),
                         ),
                         alignment: Alignment.centerLeft,
@@ -163,15 +163,14 @@ class MainScreenState extends State<MainScreen> {
                       ),
                       Container(
                         child: Text(
-                          'About me: ${document['aboutMe'] ?? 'Not available'}',
-                          style: TextStyle(color: primaryColor),
+                          '${document['aboutMe'] ?? 'Not available'}',
+                          style: TextStyle(color: primaryColor,fontWeight: FontWeight.w400),
                         ),
                         alignment: Alignment.centerLeft,
                         margin: EdgeInsets.fromLTRB(10.0, 0.0, 0.0, 0.0),
-                      )
+                      ),
                     ],
                   ),
-                  margin: EdgeInsets.only(left: 20.0),
                 ),
               ),
             ],
@@ -183,15 +182,17 @@ class MainScreenState extends State<MainScreen> {
                     builder: (context) => Chat(
                           peerId: document.documentID,
                           peerAvatar: document['photoUrl'],
-                          peerName: document['nickname']
+                          peerName: document['nickname'],
+                          peerAboutMe:'${document['aboutMe'] ?? 'Not available'}'
 
                         )));
           },
-          color: greyColor2,
+         // color: greyColor2,
           padding: EdgeInsets.fromLTRB(25.0, 10.0, 25.0, 10.0),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+          //shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         ),
-        margin: EdgeInsets.only(bottom: 10.0, left: 5.0, right: 5.0),
+      decoration: new BoxDecoration(
+        border: new Border(bottom: new BorderSide(color: greyColor2, width: 0.5)), color: Colors.white),
       );
     }
   }
@@ -235,6 +236,13 @@ class MainScreenState extends State<MainScreen> {
         centerTitle: false,
         backgroundColor: Colors.white,
         actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.search, color: Colors.lightBlue,),
+            //tooltip: 'Add new entry',
+            onPressed: () {
+              /* ... */
+            },
+          ),
           PopupMenuButton<Choice>(
             onSelected: onItemMenuPress,
             itemBuilder: (BuildContext context) {
@@ -245,7 +253,7 @@ class MainScreenState extends State<MainScreen> {
                       children: <Widget>[
                         Icon(
                           choice.icon,
-                          color: primaryColor,
+                          color: Colors.lightBlue,
                         ),
                         Container(
                           width: 10.0,
@@ -259,17 +267,19 @@ class MainScreenState extends State<MainScreen> {
               }).toList();
             },
           ),
+
         ],
       ),
       floatingActionButton: new FloatingActionButton(
         onPressed: null, //open new activity
-        backgroundColor: Colors.lightBlueAccent,
+        backgroundColor: Colors.cyan,
         //if you set mini to true then it will make your floating button small
         mini: false,
         child: new Icon(Icons.insert_chart),
       ),
-      body: WillPopScope(
-        child: Stack(
+      body: //WillPopScope(
+        //child:
+        Stack(
           children: <Widget>[
             // List
             Container(
@@ -284,7 +294,7 @@ class MainScreenState extends State<MainScreen> {
                     );
                   } else {
                     return ListView.builder(
-                      padding: EdgeInsets.all(10.0),
+                      //padding: EdgeInsets.all(10.0),
                       itemBuilder: (context, index) => buildItem(context, snapshot.data.documents[index]),
                       itemCount: snapshot.data.documents.length,
                     );
@@ -306,8 +316,8 @@ class MainScreenState extends State<MainScreen> {
             )
           ],
         ),
-        onWillPop: onBackPress,
-      ),
+        //onWillPop: onBackPress,
+      //),
     );
   }
 }

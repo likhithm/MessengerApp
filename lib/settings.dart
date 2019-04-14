@@ -236,7 +236,7 @@ class SettingsScreenState extends State<SettingsScreen> {
                   ),
                   Container(
                     child: Theme(
-                      data: Theme.of(context).copyWith(primaryColor: primaryColor),
+                      data: Theme.of(context).copyWith(primaryColor: Colors.cyan),
                       child: TextField(
                         decoration: InputDecoration(
                           hintText: 'username',
@@ -263,7 +263,7 @@ class SettingsScreenState extends State<SettingsScreen> {
                   ),
                   Container(
                     child: Theme(
-                      data: Theme.of(context).copyWith(primaryColor: primaryColor),
+                      data: Theme.of(context).copyWith(primaryColor: Colors.cyan),
                       child: TextField(
                         decoration: InputDecoration(
                           hintText: 'Fun, like to travel and play basketball ...',
@@ -285,14 +285,14 @@ class SettingsScreenState extends State<SettingsScreen> {
 
               // Button
               Container(
-                child: FlatButton(
+                child: RaisedButton(
                   onPressed: handleUpdateData,
                   child: Text(
                     'UPDATE',
                     style: TextStyle(fontSize: 16.0),
                   ),
-                  color: primaryColor,
-                  highlightColor: new Color(0xff8d93a0),
+                  color: Colors.cyan,
+                  highlightColor: Colors.lightBlue,
                   splashColor: Colors.transparent,
                   textColor: Colors.white,
                   padding: EdgeInsets.fromLTRB(30.0, 10.0, 30.0, 10.0),

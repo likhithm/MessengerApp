@@ -15,22 +15,46 @@ class Chat extends StatelessWidget {
   final String peerId;
   final String peerAvatar;
   final String peerName;
+  final String peerAboutMe;
 
-  Chat({Key key, @required this.peerId, @required this.peerAvatar,@required this.peerName}) : super(key: key);
+  Chat({Key key, @required this.peerId, @required this.peerAvatar,@required this.peerName,@required this.peerAboutMe}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text(
-          peerName,
-          style: TextStyle(color: Colors.lightBlue),
-        ),
-        actions: <Widget>[
-           showIcon()
-        ],
+        title:
+          Row(
+            children:[
+              showIcon(),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children:[
+                  new Text(
+                    peerName,
+                    style: TextStyle(color: Colors.lightBlue),
+                  ),
+                  peerAboutMe!=''?
+                    new Text(
+                    peerAboutMe,
+                    style: TextStyle(color: Colors.grey,fontSize: 12,),
+                  )
+                  :LimitedBox(),
+                ]
+              )
+            ]
+          ),
         backgroundColor: Colors.white,
         iconTheme: IconThemeData(color:Colors.lightBlue),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.info_outline, color: Colors.lightBlue,),
+            //tooltip: 'Add new entry',
+            onPressed: () {
+              /* ... */
+            },
+          ),
+        ],
       ),
       body: new ChatScreen(
         peerId: peerId,
@@ -41,8 +65,8 @@ class Chat extends StatelessWidget {
 
   Widget showIcon(){
     return Container(
-        margin:EdgeInsets.only(right:10.0,top:2.0,bottom:2.0),
-        width: 50.0,
+        margin:EdgeInsets.only(right:10.0,top:8.0,bottom:8.0),
+        width: 40.0,
         height: 50.0,
         decoration: new BoxDecoration(
           shape: BoxShape.circle,
@@ -201,11 +225,11 @@ class ChatScreenState extends State<ChatScreen> {
               ? Container(
                   child: Text(
                     document['content'],
-                    style: TextStyle(color: primaryColor),
+                    style: TextStyle(color: Colors.black),
                   ),
                   padding: EdgeInsets.fromLTRB(15.0, 10.0, 15.0, 10.0),
                   width: 200.0,
-                  decoration: BoxDecoration(color: greyColor2, borderRadius: BorderRadius.circular(8.0)),
+                  decoration: BoxDecoration(color: greyColor2, borderRadius: BorderRadius.circular(20.0)),
                   margin: EdgeInsets.only(bottom: isLastMessageRight(index) ? 20.0 : 10.0, right: 10.0),
                 )
               : document['type'] == 1
@@ -296,11 +320,12 @@ class ChatScreenState extends State<ChatScreen> {
                     ? Container(
                         child: Text(
                           document['content'],
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(color: Colors.black),
                         ),
                         padding: EdgeInsets.fromLTRB(15.0, 10.0, 15.0, 10.0),
                         width: 200.0,
-                        decoration: BoxDecoration(color: primaryColor, borderRadius: BorderRadius.circular(8.0)),
+                        decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(20.0),
+                           border:Border.all(color:Colors.grey) ),
                         margin: EdgeInsets.only(left: 10.0),
                       )
                     : document['type'] == 1
