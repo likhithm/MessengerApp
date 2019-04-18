@@ -5,11 +5,12 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:Pictor/chat.dart';
-import 'package:Pictor/const.dart';
-import 'package:Pictor/login.dart';
-import 'package:Pictor/settings.dart';
+import 'package:Connect/chat.dart';
+import 'package:Connect/const.dart';
+import 'package:Connect/login.dart';
+import 'package:Connect/settings.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:Connect/data_viz/data_v_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -230,7 +231,7 @@ class MainScreenState extends State<MainScreen> {
       appBar: AppBar(
         iconTheme: IconThemeData(color:Colors.lightBlue),
         title: Text(
-          'Pictor',
+          'Connect',
           style: TextStyle(color: Colors.lightBlue),
         ),
         centerTitle: false,
@@ -271,7 +272,7 @@ class MainScreenState extends State<MainScreen> {
         ],
       ),
       floatingActionButton: new FloatingActionButton(
-        onPressed: null, //open new activity
+        onPressed: _tapDataV, //open new activity
         backgroundColor: Colors.cyan,
         //if you set mini to true then it will make your floating button small
         mini: false,
@@ -319,6 +320,16 @@ class MainScreenState extends State<MainScreen> {
         //onWillPop: onBackPress,
       //),
     );
+  }
+
+  void _tapDataV(){
+    Navigator.of(context)
+        .push(MaterialPageRoute<Map<String,String>>(
+        builder: (context) {
+          return DataViz(widget.currentUserId);
+        },
+        fullscreenDialog: true
+    ));
   }
 }
 
