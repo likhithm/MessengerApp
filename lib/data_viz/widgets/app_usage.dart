@@ -58,14 +58,12 @@ class AppUsageChartState extends State<AppUsageChart> {
       ),
     );
 
-    return new Scaffold(
-      body: new Center(
-        child: new Column(
+    return  Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            new Text(
+           /* new Text(
               'App usage statistics',
-            ),
+            ),*/
            /* new Text(
               '$_counter',
               style: Theme
@@ -75,8 +73,6 @@ class AppUsageChartState extends State<AppUsageChart> {
             ),*/
             chartWidget,
           ],
-        ),
-      ),
      /* floatingActionButton: new FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',

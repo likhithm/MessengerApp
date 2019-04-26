@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:app_usage/app_usage.dart';
 import 'package:Connect/data_viz/widgets/app_usage.dart';
-
+import 'package:Connect/data_viz/widgets/visuals.dart';
 
 
 class DataViz extends StatefulWidget {
@@ -15,6 +15,7 @@ class DataViz extends StatefulWidget {
 
 class DataVizState extends State<DataViz> {
 
+  double hoursSpentToday = 0.0;
   @override
   void initState() {
     super.initState();
@@ -34,7 +35,19 @@ class DataVizState extends State<DataViz> {
         backgroundColor: Colors.white,
         iconTheme: IconThemeData(color:Colors.lightBlue),
       ),
-      body: AppUsageChart()
+      body:  ListView(
+          shrinkWrap: true,
+          physics: AlwaysScrollableScrollPhysics(),
+          children: <Widget>[
+            Container(
+              margin: EdgeInsets.only(top:20),
+              child:AppUsageChart(),
+            ),
+              Visuals(widget.currentUserId,hoursSpentToday)
+          ]
+      )
+
+
     );
   }
 
@@ -52,9 +65,13 @@ class DataVizState extends State<DataViz> {
       Map<String, double> usage = await appUsage.fetchUsage(startDate, endDate);
 
       // (Optional) Remove entries for apps with 0 usage time
-      usage.removeWhere((key,val) => val == 0);
+      //usage.removeWhere((key,val) => val == 0);
 
 
+      setState(() {
+        String temp = usage['com.messenger.app'].toString();
+        hoursSpentToday = double.parse(temp)/60.round();
+      });
       print(usage['com.messenger.app']);
     }
     on AppUsageException catch (exception) {
