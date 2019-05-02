@@ -10,6 +10,7 @@ import 'package:Connect/const.dart';
 import 'package:Connect/login.dart';
 import 'package:Connect/settings.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:Connect/tab_view.dart';
 import 'package:Connect/data_viz/data_v_screen.dart';
 
 void main() => runApp(MyApp());
@@ -326,7 +327,8 @@ class MainScreenState extends State<MainScreen> {
     Navigator.of(context)
         .push(MaterialPageRoute<Map<String,String>>(
         builder: (context) {
-          return DataViz(widget.currentUserId);
+          return MyTabView(widget.currentUserId);
+          //return DataViz(currentUserId);
         },
         fullscreenDialog: true
     ));

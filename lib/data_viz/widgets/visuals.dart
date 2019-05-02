@@ -1,12 +1,11 @@
 import 'dart:async';
 import 'dart:ui';
-import 'package:intl/intl.dart';
 import 'package:Connect/const.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
-import 'package:Connect/data_viz/widgets/app_usage.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 class Visuals extends StatefulWidget {
   final String peerId;
@@ -87,10 +86,7 @@ class _Visuals extends State<Visuals> {
               ),*/
               Container(
                 margin: EdgeInsets.only(top:0),
-                child:Text(
-                  "Message statistics",
-                  style: TextStyle(fontSize: 15.0, color: Colors.black87),
-                )
+                child:_Animation()
               ),
               Container(
                   height: 200,
@@ -105,14 +101,14 @@ class _Visuals extends State<Visuals> {
                   )
               ),
               Text(
-                "Time spent today",
+                "Total time spent (May 2019)",
                 style: TextStyle(fontSize: 15.0),
               ),
               Text(
               /*  (new Duration(seconds: int.parse(snapshot['totalTimeSpent'])))
                     .inHours
                     .toString(),*/
-                widget.hoursSpentToday.toString() + ' minutes',
+                widget.hoursSpentToday.toStringAsPrecision(2) + ' minutes',
                 style: TextStyle(
                   fontSize: 15.0,
                   color: Colors.grey,
@@ -177,5 +173,27 @@ class _Visuals extends State<Visuals> {
     seriesList = _createSampleData(snapshot);
     return snapshot;
   }
+
+  Widget _Animation() {
+    return Row( mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SizedBox(
+            width: 150.0,
+            child: Center(child:
+            ScaleAnimatedTextKit(
+              onTap: () {},
+              text: ["Messages Sent v/s","Messages Received"],
+              textStyle:
+              TextStyle(
+                  fontSize: 15.0,
+                  fontFamily: "Canterbury"
+              ),
+            )
+            ),
+          )
+        ]
+    );
+  }
+
 
 }
