@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'dart:ui';
-import 'package:Connect/const.dart';
+import 'package:Connect/constants/const.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';

@@ -5,13 +5,13 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:Connect/chat.dart';
-import 'package:Connect/const.dart';
-import 'package:Connect/login.dart';
-import 'package:Connect/settings.dart';
+import 'package:Connect/screens/chat.dart';
+import 'package:Connect/constants/const.dart';
+import 'package:Connect/screens/login.dart';
+import 'package:Connect/screens/settings.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:Connect/tab_view.dart';
-import 'package:Connect/data_viz/data_v_screen.dart';
+import 'package:Connect/data_viz/screens/tab_view.dart';
+import 'package:Connect/data_viz/screens/data_v_screen.dart';
 
 void main() => runApp(MyApp());
 

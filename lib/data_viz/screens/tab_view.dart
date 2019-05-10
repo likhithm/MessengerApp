@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:Connect/data_viz/data_v_screen.dart';
-import 'package:Connect/data_viz/leaderboard_fragment.dart';
+import 'package:Connect/data_viz/screens/data_v_screen.dart';
+import 'package:Connect/data_viz/screens/leaderboard_fragment.dart';
 
 
 
