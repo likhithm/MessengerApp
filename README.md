@@ -1,16 +1,10 @@
 # messenger_app
 
-A new Flutter application.
+To run this project:-  <br  />
 
-## Getting Started
+Step 1: Install Latest version of Android Studio (with all SDK tools) <br  />
+Step 2: Install Dart ( version >2.0) and Flutter SDK (version >1) <br  />
+Step 3: Clone the project and open it in Android Studio <br  />
+Step 4 :Connect a USB (if you have a andorid phone) or Run the application on emulator  <br  />
+[Make sure the minimum API level is set to 21 or above] <br  />
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.io/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.io/docs/cookbook)
-
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
